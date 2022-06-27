@@ -15,7 +15,13 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int count = 0;
+        String temp[] = input.split(" ");
+        for (int i = 0; i < temp.length; i++){
+            if (temp[i].trim().endsWith("y") || temp[i].trim().endsWith("z"))
+                count++;
+        }
+        return count;
     }
 
     /**
@@ -28,7 +34,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        base = base.replace(remove, "");
+        return base;
     }
 
     /**
@@ -40,7 +47,14 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        String is = input;
+        String not = input;
+        is.replace("is","");
+        not.replace("not","");
+        if ((input.length() - is.length()) / "is".length() == (input.length() - not.length()) / "not".length()) {
+            return true;
+        }
+            return false;
     }
 
     /**
@@ -51,7 +65,17 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        boolean happy = true;
+        input = "x" + input + "x";
+
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'g') {
+                if (input.charAt(i + 1) != 'g' && input.charAt(i - 1) != 'g') {
+                    happy = false;
+            }
+            }
+        }
+        return happy;
     }
 
 
