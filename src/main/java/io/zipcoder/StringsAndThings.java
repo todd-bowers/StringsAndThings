@@ -49,8 +49,8 @@ public class StringsAndThings {
     public Boolean containsEqualNumberOfIsAndNot(String input){
         String is = input;
         String not = input;
-        is.replace("is","");
-        not.replace("not","");
+        is = is.replaceAll("is","");
+        not = not.replaceAll("not","");
         if ((input.length() - is.length()) / "is".length() == (input.length() - not.length()) / "not".length()) {
             return true;
         }
@@ -87,6 +87,14 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int count = 0;
+
+        for (int i = 0; i < input.length()-2; i++) {
+            char tmp = input.charAt(i);
+            if (tmp == input.charAt(i+1) && tmp == input.charAt(i+2)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
